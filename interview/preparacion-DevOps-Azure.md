@@ -317,6 +317,88 @@ from azure.mgmt.resource import ResourceManagementClient
 * Traffic Manager: DNS-based, por prioridad o geolocalización
 * Application Gateway: L7, WAF, basado en rutas
 
+---
+
+## 🔍 Preguntas Basadas en Experiencia Real
+
+### ❓¿Cómo solucionaste un fallo de despliegue en AKS por un `CrashLoopBackOff`?
+
+**Respuesta:** Analicé los logs con `kubectl logs`, identifiqué que la variable `DB_HOST` estaba mal seteada desde el ConfigMap. Hice rollback al deployment anterior mientras corregía el valor. Usamos liveness probe y readiness probe para validar comportamiento correcto. Añadí validaciones de variables en la app y alertas proactivas.
+
+---
+
+### ❓¿Cómo implementaste blue/green deployment en una plataforma AKS?
+
+**Respuesta:** Utilicé Helm con dos versiones del deployment (`v1` y `v2`) en diferentes namespaces. El Ingress Controller (NGINX) redirigía tráfico usando anotaciones específicas. Hicimos pruebas con smoke tests, y una vez validado, cambiamos el route del 100% del tráfico a la nueva versión. Luego eliminamos la anterior.
+
+---
+
+### ❓Cuéntame una ocasión donde una política de seguridad mal aplicada causó problemas
+
+**Respuesta:** Una vez en Azure API Management se aplicó una política `<check-header>` obligatoria para `Authorization`, sin considerar que algunos endpoints públicos no requerían token. Esto bloqueó consultas legítimas. La solución fue aplicar la política sólo a rutas específicas usando `<when>` y `<choose>`.
+
+---
+
+### ❓¿Has tenido que automatizar despliegues en múltiples regiones?
+
+**Respuesta:** Sí, para una plataforma distribuida usé Terraform y módulos reutilizables para crear recursos en `East US` y `West Europe`. Implementé un pipeline con Azure DevOps que ejecutaba por región, integrando variables de entorno y estados remotos independientes.
+
+---
+
+### ❓¿Cómo implementaste el monitoreo centralizado?
+
+**Respuesta:** Integré Azure Monitor con Application Insights en todos los microservicios y contenedores del AKS. Habilitamos logs personalizados, traces y Live Metrics. Agregamos Azure Log Analytics para consultas avanzadas, y creamos dashboards con métricas clave (latencia, errores, throughput).
+
+---
+
+### ❓¿Has tenido una caída total en producción? ¿Qué hiciste?
+
+**Respuesta:** Tuvimos una caída por fallo en el `nodepool` del AKS. Activé el scaling de otro pool mientras investigábamos. Reiniciamos servicios críticos en nuevo pool y luego restauramos el estado del cluster. A partir de eso, configuramos un pool de fallback y probes más estrictos.
+
+---
+
+### ❓¿Cómo lograste asegurar la exposición de APIs sensibles?
+
+**Respuesta:** Implementé autenticación con Azure AD y OAuth2 en APIM, y además filtrado por IP. Configuramos WAF en Front Door para bloquear patrones de ataque. Sensitive headers fueron removidos o redirigidos con políticas personalizadas de APIM (`<set-header>` y `<remove-header>`).
+
+---
+
+### ❓¿Has trabajado con Workload Identity en AKS?
+
+**Respuesta:** Sí, implementé Workload Identity para permitir que pods accedieran a Key Vault sin necesidad de secrets o service principals. Configuré la federación OIDC, la identity federada y las roles asignadas directamente en Azure RBAC. Esto mejoró la seguridad notablemente.
+
+---
+
+### ❓¿Cómo gestionaste un problema con escalado automático que no respondía?
+
+**Respuesta:** Notamos que el HPA estaba definido con thresholds bajos, pero el Cluster Autoscaler no escalaba nodos. Investigamos y vimos que los nodos tenían recursos insuficientes para nuevos pods. Ajustamos `resourceRequests` y `limits`, y luego escaló correctamente.
+
+---
+
+### ❓¿Has tenido problemas de latencia en APIs?
+
+**Respuesta:** Sí, al exponer APIs en App Gateway y APIM. Identificamos latencia generada por backends lentos, enrutamiento ineficiente y logs síncronos en el backend. Cacheamos respuestas comunes en APIM y optimizamos llamadas internas con Azure Functions y cola asíncrona.
+
+---
+
+### ❓¿Cómo documentas tus implementaciones?
+
+**Respuesta:** Uso Markdown versionado en GitHub, incluyendo diagramas de arquitectura (con draw\.io o mermaid.js), flujos de CI/CD, decisiones técnicas y scripts. También generamos runbooks para operaciones manuales temporales.
+
+---
+
+### ❓¿Cómo hiciste troubleshooting de un error intermitente 500/200 desde Front Door?
+
+**Respuesta:** Revisamos logs de Front Door, Application Gateway y APIM. Los 500 eran generados por errores en pods que fallaban en ciertos headers específicos. Añadimos logging más detallado en el backend y ajustamos el modelo de error handling en la app. Activamos Health Probes mejorados para aislar nodos inestables.
+
+---
+
+### ❓¿Cómo protegiste endpoints internos en AKS sin exponerlos a internet?
+
+**Respuesta:** Usamos Azure Private Link con DNS privado, y Service Endpoints en subnets específicas. Aplicamos Network Policies en Kubernetes para que sólo servicios autorizados accedieran a esos pods. También usamos Internal Load Balancer (`internal: true`).
+
+---
+
 ## 📌 RECOMENDACIONES PARA ENTREVISTA
 
 * Lleva claro cómo aplicas prácticas SRE en Azure (dashboards, alertas, SLA).
