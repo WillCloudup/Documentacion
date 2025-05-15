@@ -18,14 +18,14 @@
 
 | Criterio                                                 | Puntuación (1–5) | Comentarios                                                        |
 |----------------------------------------------------------|------------------|--------------------------------------------------------------------|
-| Experiencia con Terraform y automatización IaC           |                  |                                                                    |
-| Dominio de servicios clave de Azure                      |                  | Incluye App Services, API Management, Front Door, AKS, etc.       |
-| Conocimiento de prácticas DevOps y CI/CD                 |                  | Jenkins, AWS CodePipeline, despliegue multientorno                |
-| Experiencia con contenedores y orquestación (Kubernetes) |                  | Docker, Kubernetes, EKS, MicroK8s                                 |
-| Seguridad y control de acceso (APIs / cloud)             |                  | JWT, Cognito, control de exposición pública, WAF                  |
-| Observabilidad (monitoring y logging)                    |                  | Grafana, Prometheus, CloudWatch                                   |
-| Diseño y consumo de APIs REST                            |                  | Python/Django REST, Spring Boot, Node.js                          |
-| Experiencia en proyectos cloud (AWS / Azure)             |                  | Uso real en producción                                             |
+| Experiencia con Terraform y automatización IaC           |        2.5       |                                                                    |
+| Dominio de servicios clave de Azure                      |        3         | Incluye App Services, API Management, Front Door, AKS, etc.       |
+| Conocimiento de prácticas DevOps y CI/CD                 |        2         | Jenkins, AWS CodePipeline, despliegue multientorno                |
+| Experiencia con contenedores y orquestación (Kubernetes) |        3.5       | Docker, Kubernetes, EKS, MicroK8s                                 |
+| Seguridad y control de acceso (APIs / cloud)             |        1         | JWT, Cognito, control de exposición pública, WAF                  |
+| Observabilidad (monitoring y logging)                    |        0         | Grafana, Prometheus, CloudWatch                                   |
+| Diseño y consumo de APIs REST                            |        1         | Python/Django REST, Spring Boot, Node.js                          |
+| Experiencia en proyectos cloud (AWS / Azure)             |        3         | Uso real en producción                                             |
 
 ---
 
@@ -33,10 +33,10 @@
 
 | Criterio                                                 | Puntuación (1–5) | Comentarios                                                        |
 |----------------------------------------------------------|------------------|--------------------------------------------------------------------|
-| Diagnóstico de fallas en APIs / servicios                |                  | ¿Tiene experiencia con errores 5xx, debugging, trazas?            |
-| Manejo de despliegues con rollback / blue-green          |                  |                                                                    |
-| Comprensión de flujos asíncronos y mensajería            |                  | Uso de SQS, eventos, integración con terceros                     |
-| Aplicación de buenas prácticas de diseño y arquitectura  |                  | Layered APIs, seguridad, escalabilidad                            |
+| Diagnóstico de fallas en APIs / servicios                |        3          | ¿Tiene experiencia con errores 5xx, debugging, trazas?            |
+| Manejo de despliegues con rollback / blue-green          |        2          |                                                                    |
+| Comprensión de flujos asíncronos y mensajería            |        2          | Uso de SQS, eventos, integración con terceros                     |
+| Aplicación de buenas prácticas de diseño y arquitectura  |        3.5        | Layered APIs, seguridad, escalabilidad                            |
 
 ---
 
@@ -44,10 +44,10 @@
 
 | Criterio                                                 | Puntuación (1–5) | Comentarios                                                        |
 |----------------------------------------------------------|------------------|--------------------------------------------------------------------|
-| Capacidad de liderazgo / toma de decisiones técnicas     |                  |                                                                    |
-| Documentación técnica y uso de herramientas de soporte   |                  | Docusaurus, Wiki.js, Git, README, diagramas                       |
-| Experiencia en equipos ágiles y colaborativos            |                  | Coordinación con dependencias externas, releases                  |
-| Fit cultural con Microsoft/KOF (responsabilidad, orden) |                  |                                                                    |
+| Capacidad de liderazgo / toma de decisiones técnicas     |        3.8       |                                                                    |
+| Documentación técnica y uso de herramientas de soporte   |         4        | Docusaurus, Wiki.js, Git, README, diagramas                       |
+| Experiencia en equipos ágiles y colaborativos            |        3         | Coordinación con dependencias externas, releases                  |
+| Fit cultural con Microsoft/KOF (responsabilidad, orden) |         3         |                                                                    |
 
 ---
 
@@ -69,22 +69,22 @@
 
 | Área                            | Promedio |
 |---------------------------------|----------|
-| Técnica                         |          |
-| Resolución / Pensamiento crítico|          |
-| Trabajo en equipo               |          |
-| Fit general                     |          |
-| **Total general**               |          |
+| Técnica                         |    2.5   |
+| Resolución / Pensamiento crítico|     3    |
+| Trabajo en equipo               |     4    |
+| Fit general                     |     3    |
+| **Total general**               |    3.2   |
 
 ---
 
 ### ✅ Recomendación
 
-> _☐ Apto para continuar en proceso técnico_  
+> _☐ NO Apto para continuar en proceso técnico_  
 > _☐ Requiere reforzar competencias específicas antes de avanzar_  
 > _☐ No recomendado para este proyecto_
 
 ---
 
 **Entrevistador:**  
-Nombre:  
-Fecha:  
+Nombre:  William Quintero
+Fecha:  Mayo 24 de 2025
